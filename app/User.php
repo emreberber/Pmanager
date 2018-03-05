@@ -9,21 +9,53 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 
+        'email', 
+        'password',
+        'first_name',
+        'middle_name',
+        'last_name',
+        'city',
+        'role_id'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
+    
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    // Comments -> user_id {FK}
+    // User     -> id {PK}
+    public function comments(){
+        return $this->hasMany('App\Comment');
+    }
+
+
+    // user'ın role bilgisini users tablosunda tutuyoruz.
+    // roles tablosunda sadece id ve name tutulmakta.
+    public function role(){
+        return $this->belongsTo('App\Role');
+    }
+
+
+    // Companies -> user_id {FK}
+    // Users     -> id {PK}
+    public function companies(){
+        return $this->hasMany('App\Company');
+    }
+
+
+    public function tasks(){
+        return $this->belongsToMany('App\Task');
+    }
+
+    public function projects(){
+        return $this->belongsToMany('App\Project);
+    }
+
+
+    
 }
