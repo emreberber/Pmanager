@@ -16,7 +16,7 @@ class Task extends Model
     ];
 
 
-    public function user(){s
+    public function user(){
         return $this->belongsTo('App\User');
     }
 
@@ -31,6 +31,6 @@ class Task extends Model
     }
 
     public function users(){
-        return $this->belongsToMany('App\User);
+        return $this->belongsToMany('App\User');
     }
 }

@@ -20,11 +20,13 @@ class User extends Authenticatable
         'city',
         'role_id'
     ];
+    
 
     
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
 
 
     // Comments -> user_id {FK}
@@ -53,7 +55,7 @@ class User extends Authenticatable
     }
 
     public function projects(){
-        return $this->belongsToMany('App\Project);
+        return $this->belongsToMany('App\Project');
     }
 
 

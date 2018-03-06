@@ -27,7 +27,6 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -60,9 +59,12 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+        <div class="container">
+            <div class="row" style="margin-top:20px;">
+                @yield('content')
+            </div>
+        </div>
+
     </div>
 
     <!-- Scripts -->
