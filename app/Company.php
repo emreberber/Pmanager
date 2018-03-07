@@ -13,8 +13,14 @@ class Company extends Model
     ];
 
 
+    // Companies -> user_id {FK}
     public function user(){
         return $this->belongsTo('App\User');
+    }
+
+    // Projects -> company_id {FK}
+    public function project(){
+        return $this->hasMany('App\Project');
     }
 
 }

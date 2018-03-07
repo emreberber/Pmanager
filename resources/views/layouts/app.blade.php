@@ -60,9 +60,9 @@
         </nav>
 
         <div class="container">
-            <div class="row" style="margin-top:20px;">
+        
                 @yield('content')
-            </div>
+         
         </div>
 
     </div>

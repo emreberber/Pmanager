@@ -12,17 +12,17 @@ class CompanyTableSeeder extends Seeder
         DB::table('companies')->truncate();
 
         DB::table('companies')->insert([
-            'name' => 'Deserunt proident',
+            'name'        => 'Deserunt proident',
             'description' => 'Ad nostrud excepteur enim aliquip.',
-            'user_id' => 1,
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'user_id'     => 1,
+            'created_at'  => Carbon::now()->format('Y-m-d H:i:s')
             ]);
 
         DB::table('companies')->insert([
-            'name' => 'Lorem mollit',
+            'name'        => 'Lorem mollit',
             'description' => 'Ex laboris aliquip duis tempor occaecat.',
-            'user_id' => 1,
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'user_id'     => 1,
+            'created_at'  => Carbon::now()->format('Y-m-d H:i:s')
             ]);
         
         DB::statement('SET FOREIGN_KEY_CHECKS=1; ');
