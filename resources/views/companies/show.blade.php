@@ -1,7 +1,7 @@
 @extends('layouts.app') 
 @section('content')
 
-<div class="col-md-12 col-lg-12" style="margin-right:0px;">
+<div class="col-md-12 col-lg-12">
     <div class="jumbotron">
         <h1 class="display-3">{{ $company->name }}</h1>
         <p>{{ $company->description }}</p>
@@ -19,14 +19,14 @@
 </div>
 
 <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">{{ $company->name }}</a>
+    <a class="navbar-brand" href="#">Actions</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#">Edit</a>
+                <a class="nav-link" href="/companies/{{ $company->id }}/edit">Edit</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Update</a>
