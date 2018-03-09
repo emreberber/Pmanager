@@ -25,6 +25,13 @@ class CompanyTableSeeder extends Seeder
             'created_at'  => Carbon::now()->format('Y-m-d H:i:s')
             ]);
         
+        DB::table('companies')->insert([
+            'name'        => 'Ea aliquip nostrud',
+            'description' => 'Tempor ad fugiat elit incididunt consectetur proident excepteur ex qui sunt sint.',
+            'user_id'     => 1,
+            'created_at'  => Carbon::now()->format('Y-m-d H:i:s')
+            ]);
+        
         DB::statement('SET FOREIGN_KEY_CHECKS=1; ');
     }
 }

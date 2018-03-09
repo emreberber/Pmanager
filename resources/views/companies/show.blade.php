@@ -29,7 +29,25 @@
                 <a class="nav-link" href="/companies/{{ $company->id }}/edit">Edit</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Update</a>
+            <a  class="nav-link" 
+              href="#"
+                  onclick="
+                  var result = confirm('Are you sure you wish to delete this Company?');
+                      if( result ){
+                              event.preventDefault();
+                              document.getElementById('delete-form').submit();
+                      }
+                          "
+                          >
+                  Delete
+              </a>
+
+              <form id="delete-form" action="{{ route('companies.destroy', [$company->id]) }}" 
+                method="POST" style="display: none;">
+                        <input type="hidden" name="_method" value="delete">
+                        {{ csrf_field() }}
+              </form>
+
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Add new user</a>

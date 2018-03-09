@@ -5,16 +5,17 @@
 <div class="col-md-12 col-lg-12">
     <form method="post" action="{{ route('companies.update', [$company->id]) }}">
         {{ csrf_field() }}
+        <input type="hidden" name="_method" value="put">
         <div class="form-group row">
             <label for="company-name" class="col-sm-2 col-form-label">Name</label>
             <div class="col-sm-4">
-                <input value="{{ $company->name }}" type="text" class="form-control" id="company-name" placeholder="Name">
+                <input value="{{ $company->name }}" name="name" type="text" class="form-control" id="company-name" placeholder="Name">
             </div>
         </div>
         <div class="form-group row">
             <label for="description" class="col-sm-2 col-form-label">Description</label>
             <div class="col-sm-10">
-                <textarea type="text" class="form-control" id="description" rows="5">{{ $company->description }}</textarea>
+                <textarea type="text" name="description" class="form-control" id="description" rows="5">{{ $company->description }}</textarea>
             </div>
         </div>
         <div class="form-group">
