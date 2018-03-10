@@ -3,19 +3,19 @@
 @section('content')
 
 <div class="col-md-12 col-lg-12">
-    <form method="post" action="{{ route('companies.store') }}">
+    <form method="post" action="{{ route('companies.update', [$company->id]) }}">
         {{ csrf_field() }}
-        
+        <input type="hidden" name="_method" value="put">
         <div class="form-group row">
-            <label for="company-name" class="col-sm-2 col-form-label">Company Name</label>
+            <label for="company-name" class="col-sm-2 col-form-label">Name</label>
             <div class="col-sm-4">
-                <input name="name" type="text" class="form-control" id="company-name" placeholder="Name">
+                <input value="{{ $company->name }}" name="name" type="text" class="form-control" id="company-name" placeholder="Name">
             </div>
         </div>
         <div class="form-group row">
             <label for="description" class="col-sm-2 col-form-label">Description</label>
             <div class="col-sm-10">
-                <textarea type="text" name="description" class="form-control" id="description" rows="5"></textarea>
+                <textarea type="text" name="description" class="form-control" id="description" rows="5">{{ $company->description }}</textarea>
             </div>
         </div>
         <div class="form-group">
@@ -32,7 +32,10 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/companies">My Companies</a>
+                <a class="nav-link" href="/companies/{{ $company->id }}">View Companies</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/companies">All Compamies</a>
             </li>
             <li class="nav-item dropup">
                 <a class="nav-link dropdown-toggle" href="" id="dropdown10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Members</a>

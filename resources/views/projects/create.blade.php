@@ -3,13 +3,13 @@
 @section('content')
 
 <div class="col-md-12 col-lg-12">
-    <form method="post" action="{{ route('companies.store') }}">
+    <form method="post" action="{{ route('projects.store') }}">
         {{ csrf_field() }}
         
         <div class="form-group row">
-            <label for="company-name" class="col-sm-2 col-form-label">Company Name</label>
+            <label for="project-name" class="col-sm-2 col-form-label">Proejct Name</label>
             <div class="col-sm-4">
-                <input name="name" type="text" class="form-control" id="company-name" placeholder="Name">
+                <input name="name" type="text" class="form-control" id="project-name" placeholder="Name">
             </div>
         </div>
         <div class="form-group row">
@@ -32,7 +32,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/companies">My Companies</a>
+                <a class="nav-link" href="/projects">My Companies</a>
             </li>
             <li class="nav-item dropup">
                 <a class="nav-link dropdown-toggle" href="" id="dropdown10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Members</a>
