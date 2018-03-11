@@ -2,19 +2,21 @@
 @section('content')
 
 <div class="col-md-12 col-lg-12">
-    <div class="jumbotron">
-        <h1 class="display-3">{{ $company->name }}</h1>
-        <p>{{ $company->description }}</p>
+    <div class="well well-lg">
+        <h1 class="display-3">{{ $project->name }}</h1>
+        <p>{{ $project->description }}</p>
         <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> -->
     </div>
     <div class="row">
-        @foreach($company->project as $project)
+        {{--
+        @foreach($project->project as $project)
         <div class="col-md-6">
             <h2>{{ $project->name }}</h2>
             <p>{{ $project->description }}</p>
             <p><a class="btn btn-secondary" href="/projects/{{ $project->id }}" role="button">View Projects &raquo;</a></p>
         </div>
         @endforeach
+        --}}
     </div>
 </div>
 
@@ -26,22 +28,22 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/companies/{{ $company->id }}/edit">Edit</a>
+                <a class="nav-link" href="/projects/{{ $project->id }}/edit">Edit</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/projects/create">Create Proejct</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/companies">My Companies</a>
+                <a class="nav-link" href="/projects">My Projects</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/companies/create">Create new Company</a>
-            </li>
+
+            @if($project->user_id == Auth::user()->id)
+
             <li class="nav-item">
             <a  class="nav-link" 
               href="#"
                   onclick="
-                  var result = confirm('Are you sure you wish to delete this Company?');
+                  var result = confirm('Are you sure you wish to delete this project?');
                       if( result ){
                               event.preventDefault();
                               document.getElementById('delete-form').submit();
@@ -51,13 +53,16 @@
                   Delete
               </a>
 
-              <form id="delete-form" action="{{ route('companies.destroy', [$company->id]) }}" 
+              <form id="delete-form" action="{{ route('projects.destroy', [$project->id]) }}" 
                 method="POST" style="display: none;">
                         <input type="hidden" name="_method" value="delete">
                         {{ csrf_field() }}
               </form>
 
             </li>
+
+            @endif
+
             <li class="nav-item">
                 <a class="nav-link" href="#">Add new user</a>
             </li>

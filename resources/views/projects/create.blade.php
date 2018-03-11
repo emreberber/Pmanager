@@ -6,6 +6,8 @@
     <form method="post" action="{{ route('projects.store') }}">
         {{ csrf_field() }}
         
+        <input name="company_id" type="hidden" value="{{ $company_id }}">
+
         <div class="form-group row">
             <label for="project-name" class="col-sm-2 col-form-label">Proejct Name</label>
             <div class="col-sm-4">

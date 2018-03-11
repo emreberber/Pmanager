@@ -3,10 +3,10 @@
 
 
 <div class="col-md-8 col-sm-12 offset-md-2 table-responsive">
-    <a href="/companies/create" class="btn btn-primary"><b style="color:white">Create new Company</b></a>
+    <a href="/projects/create" class="btn btn-primary"><b style="color:white">Create new Company</b></a>
     <hr>
     <div class="card text-center bg-light">
-        <h5 class="card-header">Companies </h5>
+        <h5 class="card-header">Projects </h5>
         
     </div>
     <table class="table">
@@ -18,11 +18,11 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($companies as $company)
+            @foreach($projects as $project)
             <tr>
-                <th scope="row">{{ $company->id }}</th>
-                <td><a href="/companies/{{ $company->id }}">{{ $company->name }}</a></td>
-                <td>{{ $company->description }}</td>
+                <th scope="row">{{ $project->id }}</th>
+                <td><a href="/projects/{{ $project->id }}">{{ $project->name }}</a></td>
+                <td>{{ $project->description }}</td>
             </tr>
             @endforeach
         </tbody>

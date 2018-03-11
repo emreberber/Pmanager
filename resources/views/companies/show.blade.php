@@ -29,7 +29,7 @@
                 <a class="nav-link" href="/companies/{{ $company->id }}/edit">Edit</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/projects/create">Create Proejct</a>
+                <a class="nav-link" href="/projects/create/{{ $company->id }}">Create Proejct</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/companies">My Companies</a>
