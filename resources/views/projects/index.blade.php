@@ -3,7 +3,7 @@
 
 
 <div class="col-md-8 col-sm-12 offset-md-2 table-responsive">
-    <a href="/projects/create" class="btn btn-primary"><b style="color:white">Create new Company</b></a>
+    <a href="/projects/create" class="btn btn-primary"><b style="color:white">Create new Project</b></a>
     <hr>
     <div class="card text-center bg-light">
         <h5 class="card-header">Projects </h5>

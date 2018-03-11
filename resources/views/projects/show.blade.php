@@ -7,6 +7,31 @@
         <p>{{ $project->description }}</p>
         <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> -->
     </div>
+    <br>
+ 
+    <form method="post" action="{{ route('comments.store') }}">
+        {{ csrf_field() }}
+        
+        <input name="commentable_type" type="hidden" value="Project">
+        <input name="commentable_id" type="hidden" value="{{ $project->id }}">
+
+        <div class="form-group row">
+            <label for="body" class="col-sm-2 col-form-label">Comment</label>
+            <div class="col-sm-10">
+                <textarea type="text" name="body" class="form-control" id="body" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="url" class="col-sm-2 col-form-label">Proof of work done (Url/Photos)</label>
+            <div class="col-sm-10">
+                <textarea type="text" name="url" class="form-control" id="url" rows="1"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary offset-sm-2">Submit</button>
+        </div>
+    </form>
+  
     <div class="row">
         {{--
         @foreach($project->project as $project)

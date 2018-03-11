@@ -6,7 +6,9 @@
     <form method="post" action="{{ route('projects.store') }}">
         {{ csrf_field() }}
         
+        @if($companies == null)
         <input name="company_id" type="hidden" value="{{ $company_id }}">
+        @endif
 
         <div class="form-group row">
             <label for="project-name" class="col-sm-2 col-form-label">Proejct Name</label>
@@ -14,6 +16,18 @@
                 <input name="name" type="text" class="form-control" id="project-name" placeholder="Name">
             </div>
         </div>
+
+        @if($companies != null)
+        <div class="form-group row">
+            <label for="company_id" class="col-sm-2 col-form-label">Select company</label>
+            <select name="company_id" class="form-control col-sm-4">
+                @foreach($companies as $company)
+                    <option id="company_id" value="{{ $company->id }}">{{ $company->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        @endif
+
         <div class="form-group row">
             <label for="description" class="col-sm-2 col-form-label">Description</label>
             <div class="col-sm-10">
