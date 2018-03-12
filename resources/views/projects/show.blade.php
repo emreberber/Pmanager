@@ -43,7 +43,6 @@
 </div>
 
 
-
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Actions</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,12 +82,32 @@
             @endif
 
             <li class="nav-item">
-                <a class="nav-link" href="#">Add new user</a>
+                <a class="nav-link">Add Member</a>
             </li>
+            <li class="nav-item">
+                <form id="add-user" action="{{ route('projects.create') }}"  method="POST" >
+                    {{ csrf_field() }}
+                    <div class="input-group"> 
+                    <input class="form-control" name = "project_id" id="project_id" value="{{ $project->id }}" type="hidden">
+                    <input type="text" required class="form-control" id="email"  name = "email" placeholder="Email">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit" id="addMember" >Add!</button>
+                    </span>
+                    </div><!-- /input-group -->
+                </form>                          
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-sm btn-primary">Add</a>
+            </li>
+
             <li class="nav-item dropup">
                 <a class="nav-link dropdown-toggle" href="" id="dropdown10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Members</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown10">
-                    <a class="dropdown-item" href="#">Action</a>
+                    <div class="input-group">
+                    @foreach($project->users as $user)
+                        <li><a href="#"> {{$user->email}} </a> </li>
+                    @endforeach
+                    </div>
                 </div>
             </li>
         </ul>
